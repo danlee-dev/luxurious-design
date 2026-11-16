@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="묶음 사이 간격은 묶음 안 간격의 두 배 이상">
+  <title>묶음 사이 간격은 묶음 안 간격의 두 배 이상</title>
+  <rect x="0" y="0" width="960" height="540" fill="#111111"/>
+  <g font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="13" fill="#9A9A9A">
+    <text x="96" y="70" font-size="15" fill="#EDEDED">간격이 모두 같을 때</text>
+    <text x="96" y="92">어디까지가 한 묶음인지 보이지 않습니다.</text>
+    <rect x="96" y="130" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="96" y="166" width="250" height="18" fill="#EDEDED"/>
+    <rect x="96" y="212" width="190" height="8" fill="#9A9A9A"/>
+    <rect x="96" y="248" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="96" y="284" width="250" height="18" fill="#EDEDED"/>
+    <rect x="96" y="330" width="190" height="8" fill="#9A9A9A"/>
+    <rect x="96" y="366" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="96" y="402" width="250" height="18" fill="#EDEDED"/>
+    <rect x="96" y="448" width="190" height="8" fill="#9A9A9A"/>
+    <text x="560" y="70" font-size="15" fill="#EDEDED">묶음 안 8 · 16, 묶음 사이 64</text>
+    <text x="560" y="92">선이나 상자 없이 세 묶음으로 읽힙니다.</text>
+    <rect x="560" y="130" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="560" y="146" width="250" height="18" fill="#EDEDED"/>
+    <rect x="560" y="180" width="190" height="8" fill="#9A9A9A"/>
+    <rect x="560" y="252" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="560" y="268" width="250" height="18" fill="#EDEDED"/>
+    <rect x="560" y="302" width="190" height="8" fill="#9A9A9A"/>
+    <rect x="560" y="374" width="70" height="8" fill="#9A9A9A"/>
+    <rect x="560" y="390" width="250" height="18" fill="#EDEDED"/>
+    <rect x="560" y="424" width="190" height="8" fill="#9A9A9A"/>
+    <line x1="830" y1="138" x2="830" y2="146" stroke="#E5A23C"/><line x1="826" y1="138" x2="834" y2="138" stroke="#E5A23C"/><line x1="826" y1="146" x2="834" y2="146" stroke="#E5A23C"/>
+    <text x="840" y="146.0" fill="#E5A23C">8</text>
+    <line x1="830" y1="164" x2="830" y2="180" stroke="#E5A23C"/><line x1="826" y1="164" x2="834" y2="164" stroke="#E5A23C"/><line x1="826" y1="180" x2="834" y2="180" stroke="#E5A23C"/>
+    <text x="840" y="176.0" fill="#E5A23C">16</text>
+    <line x1="830" y1="188" x2="830" y2="252" stroke="#E5A23C"/><line x1="826" y1="188" x2="834" y2="188" stroke="#E5A23C"/><line x1="826" y1="252" x2="834" y2="252" stroke="#E5A23C"/>
+    <text x="840" y="224.0" fill="#E5A23C">64</text>
+    <line x1="480" y1="48" x2="480" y2="492" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  </g>
+</svg>

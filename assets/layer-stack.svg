@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="글자를 피사체 뒤에 두는 합성의 레이어 순서">
+  <title>글자를 피사체 뒤에 두는 합성의 레이어 순서</title>
+  <rect x="0" y="0" width="960" height="540" fill="#111111"/>
+  <g font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="13" fill="#9A9A9A">
+    <defs>
+      <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.85"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient>
+      <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    </defs>
+    <text x="48" y="92" font-size="15" fill="#EDEDED">결과</text>
+    <rect x="48" y="112" width="400" height="225" fill="#2B2B2B"/>
+    <rect x="48" y="112" width="400" height="120" fill="url(#dark)"/>
+    <text x="248" y="292" text-anchor="middle" font-size="150" font-weight="900" fill="#EDEDED" letter-spacing="24">A  B</text>
+    <ellipse cx="234" cy="250" rx="36" ry="90" fill="#000000" fill-opacity="0.7" filter="url(#blur)"/>
+    <ellipse cx="248" cy="242" rx="30" ry="92" fill="#8C8C8C"/>
+    <text x="48" y="366">피사체가 글자 사이를 가리고,</text>
+    <text x="48" y="388">글자 위에 그림자를 떨어뜨립니다.</text>
+    <text x="528" y="92" font-size="15" fill="#EDEDED">레이어 순서 (위에서 아래로)</text>
+    <line x1="528" y1="112" x2="912" y2="112" stroke="#FFFFFF" stroke-opacity="0.25"/>
+    <text x="528" y="164" font-size="34" font-weight="800" fill="#E5A23C">4</text>
+    <text x="584" y="148" font-size="15" fill="#EDEDED">피사체 컷아웃</text>
+    <text x="584" y="170" font-size="12">같은 사진을 같은 위치와 크기로. 그림자는 이 레이어에 겁니다.</text>
+    <line x1="528" y1="200" x2="912" y2="200" stroke="#FFFFFF" stroke-opacity="0.25"/>
+    <text x="528" y="252" font-size="34" font-weight="800" fill="#EDEDED">3</text>
+    <text x="584" y="236" font-size="15" fill="#EDEDED">글자</text>
+    <text x="584" y="258" font-size="12">사진의 광원 쪽으로 색이 물드는 채움.</text>
+    <line x1="528" y1="288" x2="912" y2="288" stroke="#FFFFFF" stroke-opacity="0.25"/>
+    <text x="528" y="340" font-size="34" font-weight="800" fill="#EDEDED">2</text>
+    <text x="584" y="324" font-size="15" fill="#EDEDED">어둡게 하는 그라디언트</text>
+    <text x="584" y="346" font-size="12">글자와 정보가 놓이는 쪽만 어둡게 합니다.</text>
+    <line x1="528" y1="376" x2="912" y2="376" stroke="#FFFFFF" stroke-opacity="0.25"/>
+    <text x="528" y="428" font-size="34" font-weight="800" fill="#EDEDED">1</text>
+    <text x="584" y="412" font-size="15" fill="#EDEDED">사진</text>
+    <text x="584" y="434" font-size="12">화면 전체를 덮는 전면 배경.</text>
+    <line x1="528" y1="464" x2="912" y2="464" stroke="#FFFFFF" stroke-opacity="0.25"/>
+  </g>
+</svg>

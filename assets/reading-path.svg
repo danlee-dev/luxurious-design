@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="구텐베르크 다이어그램의 네 영역과 Z자 시선 경로">
+  <title>구텐베르크 다이어그램의 네 영역과 Z자 시선 경로</title>
+  <rect x="0" y="0" width="960" height="540" fill="#111111"/>
+  <g font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="13" fill="#9A9A9A">
+    <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#E5A23C"/></marker></defs>
+    <line x1="480" y1="24" x2="480" y2="516" stroke="#FFFFFF" stroke-opacity="0.18" stroke-dasharray="4 6"/>
+    <line x1="24" y1="270" x2="936" y2="270" stroke="#FFFFFF" stroke-opacity="0.18" stroke-dasharray="4 6"/>
+    <text x="48" y="56" font-size="15" fill="#EDEDED">1  주 시선 영역</text>
+    <text x="48" y="78">식별: 로고, 행사명</text>
+    <text x="528" y="56" font-size="15" fill="#EDEDED">2  강한 휴지 영역</text>
+    <text x="528" y="78">보조 정보</text>
+    <text x="48" y="446" font-size="15" fill="#EDEDED">3  약한 휴지 영역</text>
+    <text x="48" y="468">세부 정보</text>
+    <text x="528" y="446" font-size="15" fill="#EDEDED">4  종착 영역</text>
+    <text x="528" y="468">날짜, 행동 유도</text>
+    <polyline points="120,132 840,132 120,400 840,400" fill="none" stroke="#E5A23C" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="120" cy="132" r="5" fill="#E5A23C"/>
+    <circle cx="840" cy="132" r="5" fill="#E5A23C"/>
+    <circle cx="120" cy="400" r="5" fill="#E5A23C"/>
+    <rect x="356" y="228" width="248" height="84" fill="#111111"/>
+    <text x="480" y="266" text-anchor="middle" font-size="15" fill="#EDEDED">주인공은 대각선 위에</text>
+    <text x="480" y="290" text-anchor="middle">시선이 지나가는 길에 가장 큰 요소</text>
+  </g>
+</svg>
