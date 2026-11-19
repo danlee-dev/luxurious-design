@@ -98,6 +98,15 @@
 - Storydoc, [Agenda slide template](https://www.storydoc.com/presentation-slides/agenda-slide)
 - Harvard Catalyst, "Slides" (링크 확인 불가)
 
+## 디자이너가 만든 발표 자료와 IR 덱
+
+발표 자료의 레퍼런스는 같은 종류의 작업물에서 찾았습니다. 제품 웹사이트의 히어로 화면은 덱의 기준으로 맞지 않았습니다. 아래는 2026년 11월에 열어 보고 기법을 가져온 작업입니다.
+
+- Oleksandra Lytvyniuk, [Tennis Tech Investment Presentation](https://www.behance.net/gallery/254331167/Tennis-Tech-Investment-Presentation) (Behance). 표지에 공을 크게 잡은 전면 매크로 사진과 화면을 가로지르는 압축 서체 헤드라인, 네 모서리의 작은 사실 정보. 내지는 사진을 화면 끝까지 붙이고 큰 숫자와 강조색 하나로 정리했습니다.
+- Evelina Kuznetsova, [Strategic Partnership Pitch Deck & Company Presentation](https://www.behance.net/gallery/254899445/Strategic-Partnership-Pitch-Deck-Company-Presentation) (Behance). 크기가 다른 둥근 카드를 정면으로 겹친 구성, 인물 컷아웃, 사람 모양 아이콘을 줄 세워 비율을 보여 주는 아이소타입 차트, 거대한 단어 제목.
+- 같은 디자이너의 AgTech Investor Pitch Deck (Behance 검색 결과에서 확인). 오려 낸 동물 한 마리를 슬라이드 옆에 세운 표지.
+- 찾는 출발점: Behance 검색 "pitch deck design", "investor deck presentation", "saas pitch deck".
+
 ## 컨셉
 
 - 정주영 창업경진대회(아산나눔재단)의 2022~2026년 데모데이 주제와 구성. 공개 보도자료와 기사를 통해 확인했으며 개별 링크는 싣지 않았습니다.

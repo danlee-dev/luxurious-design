@@ -20,6 +20,8 @@
 | 결과물이 AI가 만든 것처럼 보입니다 | [02](docs/02-ai-look.md) → [09](docs/09-process.md) |
 | 행사나 제품의 이름과 컨셉부터 잡아야 합니다 | [07](docs/07-concept.md) |
 | 반려된 시안이 왜 반려됐는지 알고 싶습니다 | [10](docs/10-case-study.md) |
+| 사업 발표 덱이나 IR 덱을 만듭니다 | [11](docs/11-pitch-deck.md) → [08](docs/08-slides.md) → [12](docs/12-objects-and-renders.md) |
+| 기기 화면, 제품, 인물을 배경 물체로 세웁니다 | [12](docs/12-objects-and-renders.md) → [06](docs/06-photo-and-depth.md) |
 
 ## 열 가지 규칙
 
@@ -48,9 +50,21 @@
 | [08. 발표 자료 내지](docs/08-slides.md) | 주장과 근거, 한 장에 한 가지, 사실 표, 큰 숫자, 비례 시간표 |
 | [09. 작업 순서](docs/09-process.md) | 레퍼런스, 서체, 그리드, 시안, 렌더링 확인, 피드백 읽기 |
 | [10. 사례](docs/10-case-study.md) | 표지 한 장이 다섯 단계를 거쳐 통과된 과정 |
+| [11. 사업 발표 덱](docs/11-pitch-deck.md) | 본문 다섯 장의 형태, 첫 장의 물체, 심사위원이 받는 부록, 숫자, 버전 관리 |
+| [12. 배경의 물체](docs/12-objects-and-renders.md) | 3D 기기 렌더, 실사 사진에 화면 합성, 사물 은유, 오린 인물 |
 | [참고 자료](docs/references.md) | 주제별 출처 |
 | [점검표](checklists/review.md) | 내보내기 전 확인 항목 |
-| [tools/cutout.py](tools/README.md) | 어두운 배경 위의 밝은 피사체를 투명 PNG로 분리하는 스크립트 |
+| [tools/](tools/README.md) | 컷아웃(cutout.py, lift.swift), 초록 화면 합성(screen_warp.py), 인물 가장자리 페이드(fade_edges.py) |
+| [SKILL.md](SKILL.md) | AI 에이전트가 작업 유형별로 이 문서를 꺼내 쓰는 순서. Claude Code 스킬로 설치할 수 있습니다 |
+
+## AI 에이전트의 스킬로 쓰기
+
+루트의 [SKILL.md](SKILL.md)는 작업 유형별로 읽을 문서, 반드시 지킬 규칙, 확인 순서, 버전 관리를 한 장에 모은 것입니다. Claude Code에서는 스킬 폴더에 연결해 씁니다.
+
+```bash
+git clone https://github.com/danlee-dev/luxurious-design.git ~/luxurious-design
+ln -s ~/luxurious-design ~/.claude/skills/luxurious-design
+```
 
 ## 수치를 읽는 법
 
