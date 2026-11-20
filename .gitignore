@@ -5,3 +5,7 @@ __pycache__/
 .env.*
 *.pem
 secrets/
+
+# compiled helpers (swiftc -O tools/<name>.swift -o tools/<name>)
+tools/lift
+tools/faces

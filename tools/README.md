@@ -5,7 +5,9 @@
 | [cutout.py](#cutoutpy) | 어두운 배경 위 밝은 피사체를 투명 PNG로 |
 | [lift.swift](#liftswift) | macOS 피사체 분리로 사람, 기기, 사물을 투명 PNG로 |
 | [screen_warp.py](#screen_warppy) | 초록 화면 기기 사진에 실제 화면을 원근에 맞춰 합성 |
-| [fade_edges.py](#fade_edgespy) | 오린 인물의 아래와 어깨를 종이색으로 녹임 |
+| [fade_edges.py](#fade_edgespy) | 한 사람만 세울 때 오린 인물의 아래와 어깨를 종이색으로 녹임 |
+| [faces.swift](#facesswift) | macOS 얼굴 인식으로 사진마다 얼굴 박스를 픽셀로 출력 |
+| [portrait_align.py](#portrait_alignpy) | 여러 인물 사진을 얼굴 폭과 얼굴 높이로 맞추고 몸을 타원으로 녹임 |
 
 ## cutout.py
 
@@ -135,7 +137,7 @@ python3 tools/screen_warp.py laptop_green.png screen.png out.png --alpha laptop_
 
 ## fade_edges.py
 
-오린 인물 사진의 아래와 어깨를 녹여 종이 위에 자연스럽게 세웁니다. 증명사진은 가슴과 양쪽 어깨에서 잘려 있어 오린 뒤에도 상자처럼 보이기 때문입니다 ([12](../docs/12-objects-and-renders.md) 4절).
+오린 인물 사진의 아래와 어깨를 녹여 종이 위에 자연스럽게 세웁니다. 증명사진은 가슴과 양쪽 어깨에서 잘려 있어 오린 뒤에도 상자처럼 보이기 때문입니다 ([12](../docs/12-objects-and-renders.md) 4절). 여러 사람을 나란히 세울 때는 얼굴 크기가 사진마다 달라지므로 [portrait_align.py](#portrait_alignpy)를 씁니다.
 
 ### 사용
 
@@ -153,3 +155,94 @@ python3 tools/fade_edges.py person_cut.png person_fade.png --crop
 | `--crop` | | 피사체 위의 빈 줄을 잘라 냅니다 |
 
 이름을 사진 아래쪽에 겹칠 때는 알파가 0.2 아래로 떨어진 높이부터 글자를 둡니다.
+
+## faces.swift
+
+macOS Vision의 얼굴 인식으로 사진마다 얼굴 박스의 위치와 크기를 픽셀로 출력합니다. [portrait_align.py](#portrait_alignpy)가 이 출력을 읽습니다.
+
+### 준비
+
+Xcode 명령줄 도구가 필요합니다.
+
+```bash
+swiftc -O tools/faces.swift -o tools/faces
+```
+
+### 사용
+
+```bash
+tools/faces a_cut.png b_cut.png c_cut.png > faces.txt
+```
+
+한 줄에 얼굴 하나씩, 큰 얼굴부터 나옵니다.
+
+```
+a_cut.png face x=219 y=286 w=287 h=287 img=720x860
+```
+
+`x`, `y`는 얼굴 박스의 왼쪽 위, `w`, `h`는 폭과 높이입니다. 원점은 이미지의 왼쪽 위입니다. 얼굴을 못 찾은 사진과 읽지 못한 파일은 표준 오류로 알립니다.
+
+- 오린 PNG에서도 원본 사진에서와 거의 같은 박스가 나왔습니다 (차이 10px 안쪽). 같은 크기의 원본 사진에서 찾은 박스를 오린 PNG에 그대로 써도 됩니다.
+- 얼굴 박스는 이마에서 턱 끝까지를 잡는 정사각형에 가깝습니다. 정수리와 머리카락은 박스 위로 나가므로 정렬할 때 그만큼 위에 여백을 둡니다.
+- 사진 파일의 회전 정보(EXIF)는 적용하지 않습니다. 휴대폰 사진은 똑바로 세워 다시 저장한 뒤 씁니다. 다른 도구들도 같습니다.
+
+## portrait_align.py
+
+여러 사람의 오린 사진을 얼굴 기준으로 맞춥니다. 사진마다 찍은 거리가 달라서, 사진 폭을 맞추면 얼굴 크기와 머리·상반신 비율이 사람마다 달라지기 때문입니다 ([12](../docs/12-objects-and-renders.md) 4절).
+
+### 준비
+
+Python 3, Pillow, NumPy가 필요합니다.
+
+```bash
+python3 -m pip install Pillow numpy
+```
+
+### 사용
+
+```bash
+tools/faces a_cut.png b_cut.png c_cut.png > faces.txt
+python3 tools/portrait_align.py a_cut.png b_cut.png c_cut.png --faces faces.txt --sheet sheet.png
+```
+
+얼굴 박스를 직접 적을 수도 있습니다. `파일:x,y,w` 형식이고 값은 그 이미지의 픽셀입니다.
+
+```bash
+python3 tools/portrait_align.py a_cut.png:221,289,283 b_cut.png:216,308,339 c_cut.png:214,229,292
+```
+
+| 인자 | 기본값 | 설명 |
+| --- | --- | --- |
+| `images` | | 오린 PNG. 뒤에 `:x,y,w`를 붙이면 그 얼굴 박스를 씁니다 |
+| `--faces` | | `faces.swift`의 출력 파일. 파일 이름으로 짝을 짓고, 얼굴이 여럿이면 가장 큰 것을 씁니다. `-`는 표준 입력 |
+| `--face-width` | 340 | 출력에서의 얼굴 폭 (px). 슬라이드에 절반 크기로 놓으면 170입니다 |
+| `--canvas` | 2.0,2.7 | 출력 크기. 얼굴 폭의 몇 배인지 가로,세로로 적습니다 |
+| `--face-top` | 0.7 | 얼굴 박스 위의 여백. 얼굴 폭 기준 |
+| `--soft` | 0.28 | 타원 가장자리에서 녹이는 폭. 타원 반지름 기준 비율 |
+| `--bottom` | 0.55 | 아래 끝에서 녹이는 높이. 얼굴 폭 기준 |
+| `--same-bottom` | | 모든 사진의 몸이 가장 짧은 사진과 같은 높이에서 끝나게 합니다 |
+| `--out-dir` | 입력과 같은 폴더 | 저장할 폴더 |
+| `--suffix` | `_aligned` | 출력 파일 이름에 붙일 말 |
+| `--sheet` | | 결과를 종이색 위에 나란히 놓고 얼굴 박스의 위아래와 가운데에 선을 그은 확인용 이미지 |
+| `--paper` | #F4F3EF | 확인용 이미지의 바탕색 |
+
+### 동작
+
+1. 얼굴 폭이 `--face-width`가 되도록 사진마다 배율을 정합니다.
+2. 얼굴 가운데를 캔버스 가로 가운데에, 얼굴 위끝을 `--face-top` 높이에 둡니다. 원본 밖은 투명하게 남습니다.
+3. 얼굴 박스 가운데보다 조금 아래(얼굴 위끝에서 얼굴 폭의 0.62배)에 중심을 둔 타원으로 몸을 녹입니다. 타원의 가로 반지름은 캔버스 폭 절반의 0.97배라 양옆에 닿기 전에 끝나고, 아래로는 캔버스 밖까지 내려갑니다.
+4. 타원 중심보다 위쪽은 녹이지 않습니다. 머리와 머리카락이 깎이지 않고, 경계는 부드럽게 이어서 긴 머리에도 선이 남지 않습니다.
+5. 아래 끝을 녹입니다. 원본 사진이 캔버스보다 위에서 끝나면 그 끝에서 녹임을 마칩니다.
+6. 원본 사진의 가장자리가 결과에 보이면, 얼굴이 2배 넘게 커지면, 녹임이 턱까지 올라오면 경고를 냅니다.
+
+### 결과 조정
+
+| 증상 | 조정 |
+| --- | --- |
+| "edge shows" 경고, 어깨에 세로 경계 | 더 넓게 찍힌 사진을 쓰거나 `--canvas`의 가로를 줄입니다 |
+| "fade reaches the chin" 경고 | 아래로 더 길게 찍힌 사진을 씁니다 |
+| 한 사람만 몸이 짧게 끝나 보임 | `--same-bottom`으로 모두 같은 높이에서 끝냅니다 |
+| 머리 위가 잘림 | `--face-top`을 키웁니다 |
+| 얼굴이 흐림 | 원본의 얼굴이 작은 것입니다. 큰 사진을 쓰거나 `--face-width`를 줄입니다 |
+
+슬라이드에는 결과를 모두 같은 배율로 놓습니다. 그러면 얼굴 크기와 높이가 같게 유지됩니다.
